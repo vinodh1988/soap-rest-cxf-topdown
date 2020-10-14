@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.myservice.org/myservice/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="myservice" targetNamespace="http://www.myservice.org/myservice/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.myservice.org/myservice/">
+    <xsd:complexType name="people">
+			<xsd:sequence>
+				<xsd:element name="person" type="tns:person" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xsd:sequence>
+	</xsd:complexType>
+		
+     <xsd:complexType name="person">
+			<xsd:sequence>
+				<xsd:element name="sno" type="xsd:integer" />
+				<xsd:element name="name" type="xsd:string" />
+				<xsd:element name="age" type="xsd:integer" />
+				<xsd:element name="city" type="xsd:string" />
+			</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="createPersonRequest">
+          <xsd:sequence>
+            <xsd:element name="person" type="tns:person"/>
+          </xsd:sequence>
+     </xsd:complexType>
+        
+      <xsd:complexType name="createPersonResponse">
+          <xsd:sequence>
+            <xsd:element name="result" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+        
+          <xsd:complexType name="getPeopleRequest">
+          <xsd:sequence>
+            <xsd:element name="age" type="xsd:integer"/>
+          </xsd:sequence>
+         </xsd:complexType>
+         
+         <xsd:complexType name="getPeopleResponse">
+          <xsd:sequence>
+            <xsd:element name="people" type="tns:people"/>
+          </xsd:sequence>
+       </xsd:complexType>
+       
+        <xsd:element name="createPersonRequest" type="tns:createPersonRequest"> </xsd:element>
+        <xsd:element name="createPersonResponse" type="tns:createPersonResponse"> </xsd:element>
+        <xsd:element name="getPeopleRequest" type="tns:getPeopleRequest"></xsd:element>
+        <xsd:element name="getPeopleResponse" type="tns:getPeopleResponse"></xsd:element>
+       
+    </xsd:schema>
+  </wsdl:types>
+ 
+ <wsdl:message name="createPersonRequest">
+    <wsdl:part element="tns:createPersonRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="createPersonResponse">
+    <wsdl:part element="tns:createPersonResponse" name="parameters"/>
+  </wsdl:message>
+   <wsdl:message name="getPeopleRequest">
+    <wsdl:part element="tns:getPeopleRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getPeopleResponse">
+    <wsdl:part element="tns:getPeopleResponse" name="parameters"/>
+  </wsdl:message>
+  
+ <wsdl:portType name="myservice">
+    <wsdl:operation name="createPerson">
+      <wsdl:input message="tns:createPersonRequest" name="createPersonRequest"/>
+      <wsdl:output message="tns:createPersonResponse" name="createPersonResponse"/>
+    </wsdl:operation>
+     <wsdl:operation name="getPeople">
+      <wsdl:input message="tns:getPeopleRequest" name="getPeopleRequest"/>
+      <wsdl:output message="tns:getPeopleResponse" name="getPeopleResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+   <wsdl:binding name="myserviceSOAP" type="tns:myservice">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createPerson">
+      <soap:operation soapAction="http://www.example.org/myservice/createPerson"/>
+      <wsdl:input name="createPersonRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createPersonResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+      <wsdl:operation name="getPeople">
+      <soap:operation soapAction="http://www.example.org/myservice/getPeople"/>
+      <wsdl:input name="getPeopleRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPeopleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+   <wsdl:service name="myservice">
+    <wsdl:port binding="tns:myserviceSOAP" name="myserviceSOAP">
+      <soap:address location="http://localhost:9999/myservice/PeopleService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
