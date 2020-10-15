@@ -11,9 +11,9 @@
 		
      <xsd:complexType name="person">
 			<xsd:sequence>
-				<xsd:element name="sno" type="xsd:integer" />
+				<xsd:element name="sno" type="xsd:intr" />
 				<xsd:element name="name" type="xsd:string" />
-				<xsd:element name="age" type="xsd:integer" />
+				<xsd:element name="age" type="xsd:int" />
 				<xsd:element name="city" type="xsd:string" />
 			</xsd:sequence>
 	</xsd:complexType>

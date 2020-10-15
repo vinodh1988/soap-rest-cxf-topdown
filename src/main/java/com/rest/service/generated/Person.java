@@ -1,7 +1,7 @@
 
 package com.rest.service.generated;
 
-import java.math.BigInteger;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,13 +48,13 @@ public class Person {
 
     @XmlElement(required = true)
     @Id
-    protected BigInteger sno;
+    protected Integer sno;
     @XmlElement(required = true)
     @Column
     protected String name;
     @XmlElement(required = true)
     @Column
-    protected BigInteger age;
+    protected Integer age;
     @XmlElement(required = true)
     @Column
     protected String city;
@@ -64,10 +64,10 @@ public class Person {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public BigInteger getSno() {
+    public Integer getSno() {
         return sno;
     }
 
@@ -76,10 +76,10 @@ public class Person {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public void setSno(BigInteger value) {
+    public void setSno(Integer value) {
         this.sno = value;
     }
 
@@ -112,10 +112,10 @@ public class Person {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public BigInteger getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -124,10 +124,10 @@ public class Person {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public void setAge(BigInteger value) {
+    public void setAge(Integer value) {
         this.age = value;
     }
 

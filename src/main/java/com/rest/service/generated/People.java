@@ -63,5 +63,9 @@ public class People {
         }
         return this.person;
     }
+    
+    public void setPerson(List<Person> person) {
+    	this.person = person;
+    }
 
 }

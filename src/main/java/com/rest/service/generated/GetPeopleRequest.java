@@ -1,7 +1,6 @@
 
 package com.rest.service.generated;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -34,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class GetPeopleRequest {
 
     @XmlElement(required = true)
-    protected BigInteger age;
+    protected Integer age;
 
     /**
      * Gets the value of the age property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public BigInteger getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -53,10 +52,10 @@ public class GetPeopleRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public void setAge(BigInteger value) {
+    public void setAge(Integer value) {
         this.age = value;
     }
 
